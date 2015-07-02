@@ -12,8 +12,10 @@ Queue.prototype.enqueue = function(value) {
 };
 
 Queue.prototype.dequeue = function() {
+  var result = this.storage[this.head];
+  delete this.storage[this.head];
 	this.head ++;
-	return this.storage[this.head - 1];
+	return result;
 };
 
 Queue.prototype.size = function() {
