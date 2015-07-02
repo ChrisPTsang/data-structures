@@ -24,7 +24,9 @@ var stackMethods = {};
   	if (this.length > 0){
   	this.length--;
   	}
-  	return this.storage[this.length];
+    var result = this.storage[this.length];
+    delete this.storage[this.length];
+  	return result;
   };
 
   //size

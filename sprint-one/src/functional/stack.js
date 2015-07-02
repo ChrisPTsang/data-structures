@@ -15,7 +15,9 @@ var Stack = function(){
     if (length > 0){
       length --;
     }
-    return storage[length];
+    var result = storage[length];
+    delete storage[length];
+    return result;
   };
 
   someInstance.size = function(){
