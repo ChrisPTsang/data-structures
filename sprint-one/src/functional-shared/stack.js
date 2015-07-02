@@ -6,21 +6,21 @@ var Stack = function() {
   someInstance.storage = {};
   someInstance.length = 0;
   //use _.extend to add methods
-  _.extend(someInstance, Stack.stackMethods);
+  _.extend(someInstance, stackMethods);
 
   return someInstance;
 
 };
 
-Stack.stackMethods = {};
+var stackMethods = {};
   //push
-  Stack.stackMethods.push = function(value) {
+  stackMethods.push = function(value) {
   	this.storage[length] = value;
   	this.length++;
 
   };
   //pop
-  Stack.stackMethods.pop = function() {
+  stackMethods.pop = function() {
   	if (this.length > 0){
   	this.length--;
   	}
@@ -28,7 +28,7 @@ Stack.stackMethods = {};
   };
 
   //size
-  Stack.stackMethods.size = function() {
+  stackMethods.size = function() {
   	return this.length;
   };
 
