@@ -30,7 +30,8 @@ treeMethods.contains = function(target){
     }
     return result;
   };
-return searchTree.call(this, this);
+return searchTree(this);
+//return result
 };
 
 
