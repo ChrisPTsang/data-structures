@@ -40,9 +40,18 @@ Graph.prototype.addEdge = function(fromNode, toNode){
 };
 
 Graph.prototype.removeEdge = function(fromNode, toNode){
+  // for(var i = 0; i < this[fromNode].edges.length; i++) {
+  //   delete 
+  //}
+
 };
 
 Graph.prototype.forEachNode = function(cb){
+  for (var key in this) {
+    if (this.hasOwnProperty(key)) {
+      cb(key);
+    }
+  }
 };
 
 /*
