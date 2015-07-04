@@ -38,7 +38,17 @@ var BinarySearchTree = function(value){
     return found;
   };
 
-  tree.depthFirstLog = function() {
+  tree.depthFirstLog = function(iterator) {
+    var iterateTree = function(node) {
+      iterator(node.value);
+      if (node.left) {
+        iterateTree(node.left);
+      } 
+      if (node.right) {
+        iterateTree(node.right);
+      } 
+    };
+  iterateTree(tree);
 
   };
 
