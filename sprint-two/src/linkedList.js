@@ -2,7 +2,6 @@ var LinkedList = function(){
   var list = {};
   list.head = null;
   list.tail = null;
-  var counter = 0;
 
   list.addToTail = function(value){
     if(!list.tail){
