@@ -6,61 +6,57 @@ var BinarySearchTree = function(value){
   tree.left = null;
   tree.right = null;
 
-  tree.insert = function(node) {
-
-    if (node > tree.value) {
-        if(!tree.right){
-          tree.right = BinarySearchTree(node);
-        } else {
-          tree.right.insert(node);
-        }
-    } else if (node < tree.value) {
-        if(!tree.left){
-          tree.left = BinarySearchTree(node);
-        } else {
-          tree.left.insert(node);
-        }
+  tree.insert = function(value) {
+    if (value < tree.value) {
+      if (!tree.left) {
+        tree.left = BinarySearchTree(value);
+      } else {
+        tree.left.insert(value);
+      }
+    } else {
+      if (!tree.right) {
+        tree.right = BinarySearchTree(value);
+      } else {
+        tree.right.insert(value);
+      }
     }
+
   };
 
-  tree.contains = function(node) {
+  tree.contains = function(target) {
     var found = false;
-
-    if(tree.value === node){
+    if (tree.value === target) {
       found = true;
-    }
-    if (node > tree.value) {
-      if(tree.right){
-        return tree.right.contains(node);
+    } else if (target < tree.value) {
+      if (tree.left) {
+        return tree.left.contains(target);
+      } 
+    } else if (target > tree.value) {
+      if (tree.right) {
+        return tree.right.contains(target);
       }
-    } else if (node < tree.value) {
-      if(tree.left){
-        return tree.left.contains(node);
-      }
     }
+    console.log('' + target + found);
     return found;
   };
 
-  tree.depthFirstLog = function(func) {
-
-    var traverseTree = function(node) {
-      if(node){
-        func(node.value);
-        if(node.left) {
-          traverseTree(node.left);
-        }
-        if(node.right) {
-          traverseTree(node.right);
-        }
-      }
+  tree.depthFirstLog = function(iterator) {
+    var iterateTree = function(node) {
+      iterator(node.value);
+      if (node.left) {
+        iterateTree(node.left);
+      } 
+      if (node.right) {
+        iterateTree(node.right);
+      } 
     };
+  iterateTree(tree);
 
-    traverseTree(tree);
   };
 
   return tree;
-};
 
+};
 
 /*
  * Complexity: What is the time complexity of the above functions?
