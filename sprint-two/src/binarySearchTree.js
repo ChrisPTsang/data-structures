@@ -1,4 +1,4 @@
-var BinarySearchTree = function(value){
+var BinarySearchTree = function(value) {
 
   var tree = {};
 
@@ -30,13 +30,12 @@ var BinarySearchTree = function(value){
     } else if (target < tree.value) {
       if (tree.left) {
         return tree.left.contains(target);
-      } 
+      }
     } else if (target > tree.value) {
       if (tree.right) {
         return tree.right.contains(target);
       }
     }
-    console.log('' + target + found);
     return found;
   };
 
@@ -45,12 +44,12 @@ var BinarySearchTree = function(value){
       iterator(node.value);
       if (node.left) {
         iterateTree(node.left);
-      } 
+      }
       if (node.right) {
         iterateTree(node.right);
-      } 
+      }
     };
-  iterateTree(tree);
+    iterateTree(tree);
 
   };
 
